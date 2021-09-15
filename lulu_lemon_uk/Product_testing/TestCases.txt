@@ -1,0 +1,4 @@
+Test Case Result ---->PASS  (Product Url--->https://www.lululemon.co.uk/on/demandware.store/Sites-UK-Site/en_GB/Product-Variation?dwvar_prod8470023_color=32476&pid=prod8470023&quantity=1)
+Test Case Result ---->PASS  (Product Url--->https://www.lululemon.co.uk/on/demandware.store/Sites-UK-Site/en_GB/Product-Variation?dwvar_prod9600634_color=35488&pid=prod9600634&quantity=1)
+Test Case Result ---->PASS  (Product Url--->https://www.lululemon.co.uk/on/demandware.store/Sites-UK-Site/en_GB/Product-Variation?dwvar_LW3ERNS_color=48097&pid=LW3ERNS&quantity=1)
+Test Case Result ---->PASS  (Product Url--->https://www.lululemon.co.uk/on/demandware.store/Sites-UK-Site/en_GB/Product-Variation?dwvar_prod8555564_color=47949&pid=prod8555564&quantity=1)

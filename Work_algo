@@ -1,0 +1,52 @@
+This Project is done in Scrapy framework
+All the output files are stored inside Output folder
+
+
+First step is to scrape  all the product Urls and then scrape product details.
+Spiders -
+    - First spider is product_url_spider
+        - Generate listing page urls for all the sub categories followed by their Categories . For example
+	      Category  ———>Mens
+			Subcategory ———> Sports ,Tops ,Bottoms
+
+        -  Send requests to the listing page urls and get counts for total number of products  and concatenate
+	       it with listing page urls .
+
+	    -  Send requests to the final  listing page urls and get raw html of it .
+
+	    -  Extract all the product urls from raw html by calling html_parsing file inside parser directory.
+	       - html_parsing.py file contains 2 functions 1) hrefExtractor 2) url_keyword_filtering
+	         - hrefExtractor
+	            - hrefExtractor function required 1 argument (raw_html) .
+	            - it extract all the urls from given raw_html and return list of urls
+	         - url_keyword_filtering
+	            - url_keyword_filtering function required 2 arguments (input_url, url_keyword_str ->( keywords which should be there in product url for specific colours))
+	            - this function filters the url by checking keywords given in url_keyword_str is exist in url or not .
+	            - if url keyword does exist it return True otherwise it returns False
+	            - And Parser only proceed with True one .
+	    - All the Filtered product urls for their available colours  are stored in product_urls.csv file
+
+
+	- Second spider is product_detail_spider
+	    - read product_urls.csv file and extract all the product urls.
+	    - Generate product api urls for all the available colour by extracting product id and colour id from product urls .
+	    - Send requests to the  product api urls and get response as json content
+	    - Extract all the required fields from json by calling parsing_json.py file
+	    - Extracted Product Fields are -
+	      Product name ,Availability ,  MRP , Sale Price , Product Colour , Product Size , Product Url and TimeStamp
+	    - All the extracted fields are stored in product_details.csv file .
+
+Product Details Testing
+    - test_cases.py
+        - It asked user to input number of test cases to be done .
+        - from product_details.csv file extract number of random rows input by user
+        - from extracted row send request to to product url and match the product name with response product name
+        - stored test case as True if it match otherwise it stored as False in TestCase.txt
+        - it also create a .xlsx file named by product_summary along with date of creation .
+
+
+
+ Technics used for Prevent Blocking
+    -  User-Agent rotation ( used here scrapy settings )
+    -  Proxy rotation ( no proxy available so  it is not used here )
+
